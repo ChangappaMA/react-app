@@ -39,7 +39,7 @@ jobs:
         with:
           name: build
           path: build
-      - name: Create ZIP
+      - name: Create ZIP Files
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         run: |
           zip -r build.zip ./build

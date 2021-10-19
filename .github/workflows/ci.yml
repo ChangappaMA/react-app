@@ -39,9 +39,10 @@ jobs:
         with:
           name: build
           path: build
-      - name: Create Release
+      - name: Create a Release
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-        run: npx semantic-release
+      - run: npm install semantic-release
+      - run: npm semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Deploy Project
